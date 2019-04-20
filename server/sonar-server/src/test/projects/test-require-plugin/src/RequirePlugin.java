@@ -22,14 +22,16 @@ import org.sonar.api.Plugin;
 import java.util.Collections;
 import java.util.List;
 
-public class RequirePlugin extends Plugin {
+public abstract class RequirePlugin implements Plugin {
 
   public RequirePlugin() {
     // call a class that is in the api published by the base plugin
     new org.sonar.plugins.testbase.api.BaseApi().doNothing();
   }
 
+/*
   public void define(Plugin.Context context) {
 
   }
+*/
 }

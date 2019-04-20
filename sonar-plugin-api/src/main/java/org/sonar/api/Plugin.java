@@ -87,7 +87,7 @@ import static java.util.Objects.requireNonNull;
  */
 public interface Plugin {
 
-  class Context {
+  public class Context {
     private final SonarRuntime sonarRuntime;
     private final List extensions = new ArrayList();
 
