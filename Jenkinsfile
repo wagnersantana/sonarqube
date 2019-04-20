@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh './cradlew build'
+ 		sh 'echo Iniciando build...'
+                sh './gradlew build'
             }
         }
     }
