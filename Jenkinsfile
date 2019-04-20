@@ -9,8 +9,8 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 sh 'echo Running unit tests...'
-                sh mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true -f ./server/sonar-server/src/test/projects/pom.xml
-                sh mvn sonar:sonar
+                sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true -f ./server/sonar-server/src/test/projects/pom.xml'
+                sh 'mvn sonar:sonar'
             }
         }
         stage('Build') {
