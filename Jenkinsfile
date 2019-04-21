@@ -6,6 +6,7 @@ pipeline {
         AWS_ACCESS = credentials('AWS-SAMSUNG')
         AWS_SITE  = 'ec2-54-149-127-183.us-west-2.compute.amazonaws.com'
         AWS_USER = 'ubuntu'
+        AWS_PEM_FILE = '/var/jenkins_home/aws-samsung-access.pem'
     }
 
     stages {
@@ -30,6 +31,7 @@ pipeline {
             }
             steps {
                 sh "echo Deploying to AWS server: $AWS_SITE"
+                sh "/var/jenkins_home/awspublish.sh $AWS_SITE $AWS_USER $AWS_PEM_FILE sonar-application/build/distributions/*.zip"
             }
         }
     }
