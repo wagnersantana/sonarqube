@@ -24,7 +24,9 @@ pipeline {
         }
         stage('Deploy AWS') {
             when {
-                $AWS_DEPLOY == 'true'
+                expression {
+                    return env.AWS_DEPLOY == 'true';
+                }
             }
             steps {
                 sh "echo Deploying to AWS server: $AWS_SITE"
