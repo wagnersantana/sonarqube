@@ -13,14 +13,14 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 sh 'echo Running unit tests...'
-                sh 'echo mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true -f ./server/sonar-server/src/test/projects/pom.xml'
+                sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true -f ./server/sonar-server/src/test/projects/pom.xml'
                 sh 'echo mvn sonar:sonar -f ./server/sonar-server/src/test/projects/pom.xml ------- not working'
             }
         }
         stage('Build') {
             steps {
  		sh 'echo Starting build...'
-                sh 'echo ./gradlew build'
+                sh './gradlew build'
             }
         }
         stage('Deploy AWS') {
